@@ -1,0 +1,28 @@
+lang = input('Русский=1 , English=2')
+if int(lang) == 1:
+    word = input('Введите текст на русском языке для зашифровки:')
+    dic_rus = ['а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п','р','с','т','у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я','1','2','3','4','5','6','7','8','9','0',' ']
+    new_W = ''
+    for i in word:
+      if not i == ' ':
+        if i.isnumeric():
+          new_W += str(int(i) + int(1))
+        else:
+          new_W += dic_rus[(dic_rus.index(i)+1) % int(33)]
+      if i == ' ':
+        new_W += ' '
+if int(lang) == 2:
+    word = input('Enter the text in English to encrypt:')
+    dic_eng = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','1','2','3','4','5','6','7','8','9','0',' ']
+    new_W = ''
+    a = ''
+    for i in word:
+        if i.isnumeric():
+            a += i
+        if not i.isnumeric():
+            if not i == ' ':
+                new_W += dic_eng[(dic_eng.index(i)+1) % int(26)]
+            if i == ' ':
+                new_W += ' '
+    d = str(int(a) + int(1))
+print(new_W + d)
